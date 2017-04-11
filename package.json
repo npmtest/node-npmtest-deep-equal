@@ -1,1 +1,40 @@
-{     "devDependencies": {         "deep-equal": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-deep-equal",     "homepage": "https://github.com/npmtest/node-npmtest-deep-equal",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-deep-equal.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [deep-equal (v1.0.1)](https://github.com/substack/node-deep-equal#readme) [![npm package](https://img.shields.io/npm/v/npmtest-deep-equal.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-deep-equal) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-deep-equal.svg)](https://travis-ci.org/npmtest/node-npmtest-deep-equal)",
+    "devDependencies": {
+        "deep-equal": "*",
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-deep-equal",
+    "keywords": [
+        "coverage",
+        "test",
+        "deep-equal"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_deep_equal.js",
+    "name": "npmtest-deep-equal",
+    "nameAlias": "npmtest_deep_equal",
+    "nameOriginal": "npmtest-deep-equal",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-deep-equal.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
